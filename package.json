@@ -1,0 +1,23 @@
+{
+  "name": "telegrameventreminderbot",
+  "version": "1.0.0",
+  "description": "a telegram bot which remindes u specific events",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/overload78/telegramEventReminderBot.git"
+  },
+  "author": "Pouya MozaffarMagham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/overload78/telegramEventReminderBot/issues"
+  },
+  "homepage": "https://github.com/overload78/telegramEventReminderBot#readme",
+  "dependencies": {
+    "jalali-moment": "^3.0.8",
+    "node-telegram-bot-api": "^0.29.0"
+  }
+}
