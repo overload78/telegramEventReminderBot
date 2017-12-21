@@ -1,6 +1,6 @@
 {
   "name": "telegrameventreminderbot",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "a telegram bot which remindes u specific events",
   "main": "app.js",
   "scripts": {
