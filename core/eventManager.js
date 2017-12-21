@@ -90,10 +90,10 @@ class EventManager {
         console.log(eventText)
         switch(type){
             case 1://addEvent
-                var patt = /\/addNewEvent (.+) (\d{4}\/\d{2}\/\d{2}) (\d{2}:\d{2})/;
+                var patt = /\/addnewevent (.+) (\d{4}\/\d{2}\/\d{2}) (\d{2}:\d{2})/;
                 break;
             case 2://removeEvent
-                var patt = /\/removeEvent (.+)/;
+                var patt = /\/removeevent (.+)/;
                 break;
         }
 

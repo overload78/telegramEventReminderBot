@@ -16,7 +16,7 @@ class BotHandler {
 
         //let's define commands
 
-        this.bot.onText(/\/addNewEvent (.+) (\d{4}\/\d{2}\/\d{2}) (\d{2}:\d{2})/, (msg) => {
+        this.bot.onText(/\/addnewevent (.+) (\d{4}\/\d{2}\/\d{2}) (\d{2}:\d{2})/, (msg) => {
             var eventText = this.eventManager._getEventParameters(msg.text,1);
             if(this.eventManager.checkEventExists(msg,eventText[1])){
                  this.bot.sendMessage(msg.chat.id,"رویدادی با همین نام موجود است.");
@@ -34,7 +34,7 @@ class BotHandler {
 
         });
 
-        this.bot.onText(/\/removeEvent (.+)/,(msg)=>{
+        this.bot.onText(/\/removeevent (.+)/,(msg)=>{
             
             if(this.eventManager.removeEvent(msg)){
                 this.bot.sendMessage(msg.chat.id,"رویداد با موفقیت حذف شد.");
