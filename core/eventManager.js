@@ -9,13 +9,11 @@ class EventManager {
 
     }
 
-    checkEventExists(msg) { //
-
-        var eventText = this._getEventParameters(msg.text);
+    checkEventExists(msg,eventName) { //
 
         for (let data of this.data) {
 
-            if (data.eventName.trim() == eventText[1].trim() && data.userId == msg.from.id) {
+            if (data.eventName.trim() == eventName.trim() && data.userId == msg.from.id) {
 
                 return true; //exists
 
@@ -29,7 +27,7 @@ class EventManager {
 
     addEvent(msg) {
 
-        var eventText = this._getEventParameters(msg.text);
+        var eventText = this._getEventParameters(msg.text,1);
 
         moment.locale('fa');
 
@@ -50,6 +48,18 @@ class EventManager {
 
         return true;
 
+    }
+
+    removeEvent(msg){
+        var eventText = this._getEventParameters(msg.text,2);
+        if(this.checkEventExists(msg,eventText[1])){
+            this.data.filter(data=>{data.eventName != eventText[0] && data.userId == msg.from.id});
+            this._saveDatas();
+            this._getDatas();
+            return true;
+        }else{
+            return false;
+        }
     }
 
     check(from, to) {
@@ -76,9 +86,16 @@ class EventManager {
         
     }
 
-    _getEventParameters(eventText) {
-
-        var patt = /\/addNewEvent (.+) (\d{4}\/\d{2}\/\d{2}) (\d{2}:\d{2})/;
+    _getEventParameters(eventText,type) {
+        console.log(eventText)
+        switch(type){
+            case 1://addEvent
+                var patt = /\/addNewEvent (.+) (\d{4}\/\d{2}\/\d{2}) (\d{2}:\d{2})/;
+                break;
+            case 2://removeEvent
+                var patt = /\/removeEvent (.+)/;
+                break;
+        }
 
         return patt.exec(eventText);
 

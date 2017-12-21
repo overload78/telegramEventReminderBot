@@ -4,7 +4,8 @@
   "description": "a telegram bot which remindes u specific events",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "start:watch": "nodemon app.js"
   },
   "repository": {
     "type": "git",
